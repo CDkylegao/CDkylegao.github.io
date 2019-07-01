@@ -1,0 +1,403 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" , user-scalable="no"">
+  <title>KyleGao Blog</title>
+  <link rel="shortcut icon" href>
+  
+    
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css">
+    
+      <link rel="stylesheet" href="/css/font-awesome.min.css">
+    
+      <link rel="stylesheet" href="/css/atom-one-dark.css">
+    
+      <link rel="stylesheet" href="/css/jquery.fancybox.css">
+    
+      <link rel="stylesheet" href="/css/nprogress.min.css">
+    
+      <link rel="stylesheet" href="/css/valine.css">
+    
+      <link rel="stylesheet" href="/css/life.css">
+    
+  
+
+  
+
+  <!-- jQuery first, then Tether, then Bootstrap JS. -->
+  
+  
+  
+    <script src="/js/jquery-2.2.4.min.js"></script>
+  
+    <script src="https://cdn1.lncld.net/static/js/3.1.0/av-min.js"></script>
+  
+    <script src="/js/jquery.pjax.js"></script>
+  
+    <script src="/js/nprogress.min.js"></script>
+  
+    <script src="/js/tether.min.js"></script>
+  
+    <script src="/js/bootstrap.min.js"></script>
+  
+    <script src="/js/highlight.min.js"></script>
+  
+    <script src="/js/highlightjs-line-numbers.min.js"></script>
+  
+    <script src="/js/jquery.fancybox.js"></script>
+  
+    <script src="/js/jquery.qrcode.min.js"></script>
+  
+    <script src="/js/Valine.min.js"></script>
+  
+  
+</head>
+<body>
+<script>AV.init({appId:'',appKey:''});</script>
+<script type="text/javascript">
+      var config = {
+            ClasS: 'Counter',
+            el:'.views',
+            elP: '.views-post'
+      }
+</script>
+<div class="container">
+    <div class="row blog-box-shadow">
+        <!--博客主栏开始-->
+        <div class="col-xl-9 col-lg-12 blog-main" id="pjax-box">
+            <header class="blog-header">
+                <a href="http://yoursite.com" class="blog-header-mobile-title">KyleGao Blog</a>
+                <a href="javascript:;" class="blog-header-navbar-btn"><i class="fa fa-bars"></i></a>
+                <nav class="blog-header-navbar blog-header-fixed">
+                    <ul class="blog-navbar-links">
+                        
+                          <li class="blog-nav-item"><a href="/" class="transition">首页</a></li>
+                        
+                          <li class="blog-nav-item"><a href="/about/" class="transition">关于</a></li>
+                        
+                          <li class="blog-nav-item"><a href="/links/" class="transition">链接</a></li>
+                        
+                        <div class="blog-navbar-right">
+                            <form action>
+                                <div class="input-group">
+                                    <input type="text" class="blog-header-search" placeholder="search...">
+                                    <buttn type="submit" class="blog-header-search-btn"><i class="fa fa-search"></i></buttn>
+                                </div>
+                            </form>
+                        </div>
+                    </ul>
+                </nav>
+            </header>
+                
+<header class="blog-post-page-title">
+    <h4></h4>
+    <time datetime="2019-07-01T12:08:46.187Z"><i class="fa fa-clock-o"></i>2019-07-01</time>
+    
+    
+    
+    
+	
+    
+</header>
+<div class="blog-main-post blog-post-page-box">
+    <article class="blog-post-block blog-post-page-content">
+        <section>
+            
+                <p>后端（django、flask、tornado）<br>被继承的类是抽象类</p>
+<h2 id="后端构建"><a href="#后端构建" class="headerlink" title="后端构建"></a>后端构建</h2><hr>
+<h3 id="见：Django-环境和项目分离的方式"><a href="#见：Django-环境和项目分离的方式" class="headerlink" title="见：Django-环境和项目分离的方式"></a>见：Django-环境和项目分离的方式</h3><h2 id="Django项目之模型的拆分、迁移"><a href="#Django项目之模型的拆分、迁移" class="headerlink" title="Django项目之模型的拆分、迁移"></a>Django项目之模型的拆分、迁移</h2><hr>
+<h3 id="讲解"><a href="#讲解" class="headerlink" title="讲解"></a>讲解</h3><ul>
+<li><p>该项目：</p>
+<blockquote>
+<p>工程名 - axf</p>
+</blockquote>
+<blockquote>
+<p>应用名 - carts、goods、orders、users</p>
+</blockquote>
+<h3 id="模型拆分之原因"><a href="#模型拆分之原因" class="headerlink" title="模型拆分之原因"></a>模型拆分之原因</h3><p>当我们的Django项目中一个app混杂多个model，甚至这些model关联性不大。<br>这种情况很不利于维护和后期功能的拓展。<br>按项目的功能来将一个app拆分成多个app。</p>
+<h3 id="on-delete"><a href="#on-delete" class="headerlink" title="on_delete"></a>on_delete</h3><p>模型中有主外键关联时在外键需加上<strong>on_delete</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">on_delete=models.CASCADE级联删除</span><br><span class="line">on_delete=models.SET_NULL主键删除时，外键为空</span><br><span class="line">on_delete=models.PROTECT主键不能被删除</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="迁移"><a href="#迁移" class="headerlink" title="迁移"></a>迁移</h3><p>见：Django</p>
+<h2 id="登录和注册（用户模块）"><a href="#登录和注册（用户模块）" class="headerlink" title="登录和注册（用户模块）"></a>登录和注册（用户模块）</h2><hr>
+<h3 id="用户注册"><a href="#用户注册" class="headerlink" title="用户注册"></a>用户注册</h3><ul>
+<li>例如前端的数据接口是：/api/user/auth/register/</li>
+</ul>
+<ol>
+<li><p>在axf\urls.py中修改url映射</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">urlpatterns = [</span><br><span class="line">    <span class="comment"># path('地址', include('app.urls', namespace='')),</span></span><br><span class="line">    path(<span class="string">'api/user/'</span>, include(<span class="string">'users.urls'</span>)),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在users\urls.py中写入</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> rest_framework.routers <span class="keyword">import</span> SimpleRouter</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> users.views <span class="keyword">import</span> UserView</span><br><span class="line"><span class="comment"># 获取路由对象</span></span><br><span class="line">router = SimpleRouter()</span><br><span class="line"><span class="comment"># 注册资源，第一个参数表示资源，</span></span><br><span class="line">router.register(<span class="string">'auth'</span>, UserView)</span><br><span class="line"><span class="comment"># 生成地址</span></span><br><span class="line"><span class="comment"># /api/user/auth/  对应的请求方式  GET(相当于获取这个资源)  POST(相当于创建一个资源)</span></span><br><span class="line"><span class="comment"># /api/user/auth/id  对应的请求方式 PUT  PATCH DELETE</span></span><br><span class="line"><span class="comment"># id代表auth资源的主键</span></span><br><span class="line">urlpatterns = [</span><br><span class="line"></span><br><span class="line">]</span><br><span class="line"><span class="comment"># 获取地址，交给urlpatterns，django才好解析新地址</span></span><br><span class="line"><span class="comment"># router.urls相当于拿到的是'/api/user/auth/','/api/user/auth/id'（id是user的主键）这两个地址</span></span><br><span class="line">urlpatterns += router.urls</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在users\views.py中写入</p>
+<p>(a.) GenericViewSet：主要包含了’get_object’和’get_queryset’两种方法。So：必须要继承viewsets.GenericViewSet类。</p>
+<p>(b.) filter_queryset()：过滤括号中的内容</p>
+<p>(c.) UserView类中的queryset、serializer_class的两个参数主要是为了对应父类ListModelMixin中的list方法：queryset = self.filter_queryset(self.get_queryset())、serializer = self.get_serializer(queryset, many=True)，具体可以查看父类ListModelMixin的内部</p>
+<p>(d.) ListModelMixin：相当于获取所有资源的一个序列化后的值</p>
+<p>(e.)装饰器：@list_route  —  表示被装饰的函数的函数名可以作为路由的一部分，就可以拿到前端访问的地址</p>
+<p>(f.) request.data：ajax提交过来的数据</p>
+<p>(j.) get_serializer：调用的是RegisterSerializer</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> rest_framework <span class="keyword">import</span> viewsets, mixins</span><br><span class="line"><span class="keyword">from</span> rest_framework.decorators <span class="keyword">import</span> list_route</span><br><span class="line"><span class="keyword">from</span> rest_framework.response <span class="keyword">import</span> Response</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> users.models <span class="keyword">import</span> UserModel</span><br><span class="line"><span class="keyword">from</span> users.serializers <span class="keyword">import</span> UserSerializer, RegisterSerializer</span><br><span class="line"><span class="comment"># (a)(b)(c)(d)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserView</span><span class="params">(viewsets.GenericViewSet, mixins.ListModelMixin)</span>:</span></span><br><span class="line">   <span class="comment"># 资源数据（ListModelMixin方法要用到这个参数）</span></span><br><span class="line">   queryset = UserModel.objects.all()</span><br><span class="line">   <span class="comment"># 序列化</span></span><br><span class="line">   serializer_class = UserSerializer</span><br><span class="line">   <span class="comment"># (e)RegisterSerializer：用于注册数据进行校验</span></span><br><span class="line"><span class="meta">   @list_route(methods=['POST'], serializer_class=RegisterSerializer)</span></span><br><span class="line">   <span class="function"><span class="keyword">def</span> <span class="title">register</span><span class="params">(self, request)</span>:</span></span><br><span class="line">       <span class="comment"># 该方法要被调用，请求地址为：/api/user/suth/registe</span></span><br><span class="line">       <span class="comment"># 校验POST传递的参数(f)(j)，拿到data数据进行校验</span></span><br><span class="line">       serializer = self.get_serializer(data=request.data)</span><br><span class="line">       <span class="comment"># 判断校验结构（校验是否成功）</span></span><br><span class="line">       result = serializer.is_valid()</span><br><span class="line">       <span class="comment"># if not result:</span></span><br><span class="line">       <span class="comment">#     pass</span></span><br><span class="line">       <span class="comment"># 校验字段没问题，且账号和密码也没问题</span></span><br><span class="line">       user = serializer.save()</span><br><span class="line">       result = &#123;</span><br><span class="line">           <span class="string">'code'</span>: <span class="number">200</span>,</span><br><span class="line">           <span class="string">'msg'</span>: <span class="string">'请求成功'</span>,</span><br><span class="line">           <span class="string">'data'</span>: &#123;</span><br><span class="line">               <span class="string">'user_id'</span>: user.id</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> Response(&#123;<span class="string">'code'</span>: <span class="number">200</span>&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在users中创建一个serializers.py模块，并写入</p>
+<p>  (a.) ModelSerializer：以这个模型序列化</p>
+<p>  (b.) 定制error_messages，可以在调试时，显示错误信息显示中文，具体字段可以查看内部</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib.auth.hashers <span class="keyword">import</span> make_password</span><br><span class="line"><span class="keyword">from</span> rest_framework <span class="keyword">import</span> serializers</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> users.models <span class="keyword">import</span> UserModel</span><br><span class="line"><span class="keyword">from</span> utils.errors <span class="keyword">import</span> ParamsException</span><br><span class="line"></span><br><span class="line"><span class="comment"># ModelSerializer：实现校验字段和序列化字段的作用</span></span><br><span class="line"><span class="comment"># Serialize人：实现校验字段</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserSerializer</span><span class="params">(serializers.ModelSerializer)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        <span class="comment"># 序列化的模型</span></span><br><span class="line">        model = UserModel</span><br><span class="line">        <span class="comment"># 序列化的字段（指定字段）</span></span><br><span class="line">        <span class="comment"># fields = '__all__' ：序列化所有字段</span></span><br><span class="line">        fields = [<span class="string">'username'</span>, <span class="string">'email'</span>, <span class="string">'sex'</span>]</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LoginSerializer</span><span class="params">(serializers.Serializer)</span>:</span></span><br><span class="line">    <span class="string">"""登录参数序列化"""</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RegisterSerializer</span><span class="params">(serializers.Serializer)</span>:</span></span><br><span class="line">    <span class="string">"""注册参数序列化"""</span></span><br><span class="line">    <span class="comment"># (b)</span></span><br><span class="line">    u_username = serializers.CharField(max_length=<span class="number">10</span>, min_length=<span class="number">3</span>,</span><br><span class="line">                                      required=<span class="literal">True</span>,</span><br><span class="line">                                      error_messages=&#123;</span><br><span class="line">                                          <span class="string">'required'</span>: <span class="string">'账号必填'</span>,</span><br><span class="line">                                          <span class="string">'max_length'</span>: <span class="string">'账号不能超过10字符'</span>,</span><br><span class="line">                                          <span class="string">'min_length'</span>: <span class="string">'账号不能短于3字符'</span></span><br><span class="line">                                      &#125;)</span><br><span class="line">    u_password = serializers.CharField(max_length=<span class="number">10</span>,min_length=<span class="number">5</span>,</span><br><span class="line">                                      required=<span class="literal">True</span>,</span><br><span class="line">                                      error_messages=&#123;</span><br><span class="line">                                          <span class="string">'required'</span>: <span class="string">'密码必填'</span>,</span><br><span class="line">                                          <span class="string">'max_length'</span>: <span class="string">'账号不能超过10字符'</span>,</span><br><span class="line">                                          <span class="string">'min_length'</span>: <span class="string">'账号不能短于5字符'</span></span><br><span class="line">                                      &#125;)</span><br><span class="line">    u_password2 = serializers.CharField(max_length=<span class="number">10</span>,min_length=<span class="number">5</span>,</span><br><span class="line">                                       required=<span class="literal">True</span>,</span><br><span class="line">                                       error_messages=&#123;</span><br><span class="line">                                           <span class="string">'required'</span>: <span class="string">'密码必填'</span>,</span><br><span class="line">                                           <span class="string">'max_length'</span>: <span class="string">'账号不能超过10字符'</span>,</span><br><span class="line">                                           <span class="string">'min_length'</span>: <span class="string">'账号不能短于5字符'</span></span><br><span class="line">                                       &#125;)</span><br><span class="line">    u_email = serializers.EmailField(required=<span class="literal">True</span>,</span><br><span class="line">                                    error_messages=&#123;</span><br><span class="line">                                        <span class="string">'required'</span>: <span class="string">'邮箱必填'</span>,</span><br><span class="line">                                        <span class="string">'invalid'</span>: <span class="string">'请输入正确的邮箱地址'</span></span><br><span class="line">                                    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># attrs：上面校验完的数据</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">validate</span><span class="params">(self, attrs)</span>:</span></span><br><span class="line">        <span class="comment"># 校验账号字段是否已存在</span></span><br><span class="line">        username = attrs.get(<span class="string">'u_username'</span>)</span><br><span class="line">        user = UserModel.objects.filter(username=username).first()</span><br><span class="line">        <span class="keyword">if</span> user:</span><br><span class="line">            <span class="comment"># 账号已存在，不能创建</span></span><br><span class="line">            <span class="keyword">raise</span> ParamsException(&#123;<span class="string">'code'</span>: <span class="number">1001</span>, <span class="string">'mag'</span>: <span class="string">'账号已存在'</span>&#125;)</span><br><span class="line">            <span class="comment"># 就、判断密码是否一致</span></span><br><span class="line">            pw1 = attrs.get(<span class="string">'u_password'</span>)</span><br><span class="line">            pw2 = attrs.get(<span class="string">'u_password2'</span>)</span><br><span class="line">            <span class="keyword">if</span> pw1 != pw2:</span><br><span class="line">                <span class="keyword">raise</span> ParamsException(&#123;<span class="string">'code'</span>: <span class="number">1002</span>, <span class="string">'mag'</span>: <span class="string">'密码不正确'</span>&#125;)</span><br><span class="line"></span><br><span class="line">                <span class="keyword">return</span> attrs</span><br><span class="line"></span><br><span class="line">            <span class="function"><span class="keyword">def</span> <span class="title">create</span><span class="params">(self, validated_data)</span>:</span></span><br><span class="line">                <span class="comment"># 调用serializer.save()方法时，被主动调用的create方法</span></span><br><span class="line">                username = validated_data.get(<span class="string">'u_usernamme'</span>)</span><br><span class="line">                <span class="comment"># 加密和解密</span></span><br><span class="line">                password = make_password(validated_data.get(<span class="string">'u_password'</span>))</span><br><span class="line">                email = validated_data.get(<span class="string">'u_email'</span>)</span><br><span class="line">                user = UserModel.objects.create(username=username,</span><br><span class="line">                                               password=password,</span><br><span class="line">                                               email=email)</span><br><span class="line">                <span class="keyword">return</span> user</span><br><span class="line">            <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">                model = UserModel</span><br><span class="line">                fields = <span class="string">'__all__'</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>抛异常</p>
+<p>在工程文件中创建一个工具包utils，创建errors.py文件</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> rest_framework.exceptions <span class="keyword">import</span> APIException</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ParamsException</span><span class="params">(APIException)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, msg)</span>:</span></span><br><span class="line">	self.detail = msg</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ol>
+
+            
+        </section>
+        <footer class="blog-post-page-tags">
+        
+			
+		
+        </footer>
+    </article>
+    <article class="blog-post-page-readmore">
+    	
+    	
+		
+			<a href="/2019/07/01/django/" class="blog-post-page-readmore-prev" data-toggle="tooltip" data-placement="top" title>上一篇</a>
+		
+
+		
+		
+			<a href="/2019/07/01/6.21/" class="blog-post-page-readmore-next" data-toggle="tooltip" data-placement="top" title>下一篇</a>
+		
+
+        <div style="clear: both;"></div>
+    </article>
+
+    <article class="blog-post-block blog-post-page-content">
+            <div class="row">
+            
+                <div class="col-md-4 col-sm-4 post-page-more-btn">
+                    <span class="post-comments-btn btn btn-info btn-block" data-toggle="tooltip" data-placement="top" title="本站采用Disqus评论组件，若您没有科学上网可能会无法查看并评论">加载评论</span>
+                </div>
+            
+                <div class="col-md-4 col-sm-4 post-page-more-btn">
+                    <span data-toggle="modal" data-target="#post-donate-content">
+                        <span id="post-donate-btn" class="btn btn-danger btn-block" data-toggle="tooltip" data-placement="top" title="如果您觉得本文还不错或者对您有帮助，可以考虑打赏一下作者哦">打赏本文</span>
+                    </span>
+                </div>
+                <div class="col-md-4 col-sm-4 post-page-more-btn">
+                    <span data-toggle="modal" data-target="#post-qrcode-content">
+                        <span><span id="post-qrcode-btn" class="btn btn-success btn-block" data-toggle="tooltip" data-placement="top" title="微信扫描二维码手机端查看本文及分享本文">二维码</span></span>
+                    </span>
+                </div>
+            </div>
+        <div class="post-more-function-br"></div>
+
+        <div class="modal fade" id="post-donate-content" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">打赏本文</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row post-donate-content">
+                            <div class="col-md-4">
+                                <p>支付宝</p>
+                                <img class="post-donate-content-img no-lightbox" src="http://dl.weic96.cn/logo.png">
+                            </div>
+                            <div class="col-md-4">
+                                <p>微信</p>
+                                <img class="post-donate-content-img no-lightbox" src="http://dl.weic96.cn/logo.png">
+                            </div>
+                            <div class="col-md-4">
+                                <p>财付通</p>
+                                <img class="post-donate-content-img no-lightbox" src="http://dl.weic96.cn/logo.png">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="post-qrcode-content" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">文章二维码</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row post-qrcode-content">
+                            <span class="post-qrcode-content-canvas"></span>
+                            <img class="post-qrcode-content-img no-lightbox" src>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            // post QRcode
+            // 中文转码
+            function toUtf8(str) {
+                var out, i, len, c;
+                out = "";
+                len = str.length;
+                for (i = 0; i < len; i++) {
+                    c = str.charCodeAt(i);
+                    if ((c >= 0x0001) && (c <= 0x007F)) {
+                        out += str.charAt(i);
+                    } else if (c > 0x07FF) {
+                        out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));
+                        out += String.fromCharCode(0x80 | ((c >> 6) & 0x3F));
+                        out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+                    } else {
+                        out += String.fromCharCode(0xC0 | ((c >> 6) & 0x1F));
+                        out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+                    }
+                }
+                return out;
+            }
+            // 生成
+            var qrcode= $('.post-qrcode-content-canvas').qrcode({width: 150,height: 150,text: toUtf8("http://yoursite.com/2019/07/01/6.24后端构建/")}).hide();
+            var canvas=qrcode.find('canvas').get(0);
+            $('.post-qrcode-content-img').attr('src',canvas.toDataURL('image/jpg'));
+        </script>
+
+        
+    </article>
+    
+</div>
+
+                
+            <footer class="blog-footer">
+                <p class="blog-footer-left">Copyright ©  2019 <a href="http://yoursite.com">KyleGao Blog</a></p>
+                <p class="blog-footer-right">Powered by <a href="https://hexo.io" target="_blank">Hexo</a>,Theme <a href="https://note.isweic.com/themes-life/" target="_blank">Life</a></p>
+            </footer>
+        </div><!--博客主栏结束-->
+        <!--博客侧边栏开始-->
+        <div class="col-xl-3 blog-sidebar">
+            <div class="blog-sidebar-title">
+                <a href>KyleGao Blog</a>
+            </div>
+            <div class="blog-sidebar-logo">
+                <img src="http://b-ssl.duitang.com/uploads/item/201504/19/20150419H2846_8HKzU.jpeg">
+            </div>
+            <div class="blog-sidebar-count blog-sidebar-padding">
+                <div class="blog-sidebar-count-left">
+                    <p class="blog-sidebar-count-p">13</p>
+                    <span class="blog-sidebar-count-span">文章</span>
+                </div>
+                <div class="blog-sidebar-count-right">
+                    <p class="blog-sidebar-count-p">2</p>
+                    <span class="blog-sidebar-count-span">标签</span>
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+            <div class="blog-sidebar-icon blog-sidebar-padding">
+                <ul>
+                    <li><a href="https://github.com/CDkylegao" class="icon-github" target="_blank" data-toggle="tooltip" data-placement="top" title="Github"><i class="fa fa-github"></i></a></li>
+                    <li><a href class="icon-weibo" target="_blank" data-toggle="tooltip" data-placement="top" title="新浪微博"><i class="fa fa-weibo"></i></a></li>
+                    <li><a href class="icon-twitter" target="_blank" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                    <!--<li><a href="" class="icon-facebook" target="_blank" data-toggle="tooltip" data-placement="top" title="FaceBook"><i class="fa fa-facebook"></i></a></li>-->
+                    <li><a href="mailto:gaopeng3725@163.com" class="icon-email" data-toggle="tooltip" data-placement="top" title="E-Mail"><i class="fa fa-envelope"></i></a></li>
+                    <li><a href class="icon-rss" data-toggle="tooltip" target="_blank" data-placement="top" title="RSS"><i class="fa fa-rss"></i></a></li>
+                </ul>
+            </div>
+            <div class="blog-sidebar-categories">
+                <h4 class="blog-sidebar-h4"><i class="fa fa-folder-open"></i>&nbsp;文章分类</h4>
+                <ul class="list-group blog-sidebar-padding">
+                  
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/Django/">Django</a>
+                          <span class="badge badge-default badge-pill">3</span>
+                      </li>
+                    
+                  
+                </ul>
+            </div>
+            <div class="blog-sidebar-tags">
+                <h4 class="blog-sidebar-h4"><i class="fa fa-tag"></i>&nbsp;标签云</h4>
+                <ul class="blog-sidebar-tags-ul blog-sidebar-padding">
+                  
+                    
+                      <li><a href="/tags/Django/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Django">Django</a></li>
+                    
+                      <li><a href="/tags/Blog/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Blog">Blog</a></li>
+                    
+                  
+                </ul>
+            </div>
+            <script>
+              // 博客侧栏标签云随机色
+              var tag_cloud = $('.tag-could');
+              tag_cloud.each(function () {
+                  var Cnum = 9;
+                  var Crand = parseInt(Math.random() * Cnum);
+                  $(this).addClass("tag-could" + Crand);
+              })
+            </script>
+            <!--返回顶部按钮-->
+            <div class="retop">
+                <i class="fa fa-angle-up"></i>
+            </div>
+        </div><!--博客侧边栏结束-->
+    </div>
+</div>
+<script src="/js/LeanStatistics.min.js"></script>
+<script src="/js/Life.js"></script>
+<script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+    hljs.initLineNumbersOnLoad();
+    otherF();
+    LeanStatistics();
+    $(document).pjax('a', '#pjax-box', {fragment:'#pjax-box', timeout:8000}).on('pjax:complete', function() {
+      $('pre code').each(function(i, block){
+        hljs.highlightBlock(block);
+      })
+      $('code.hljs').each(function(i, block) {
+        hljs.lineNumbersBlock(block);
+      });
+      LeanStatistics();
+    }).on('pjax:start', function() { NProgress.start(); }).on('pjax:end',   function() {
+      NProgress.done();
+      otherF();
+    });
+</script>
+</body>
+</html>

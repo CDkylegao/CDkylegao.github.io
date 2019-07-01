@@ -1,0 +1,614 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" , user-scalable="no"">
+  <title>KyleGao Blog</title>
+  <link rel="shortcut icon" href>
+  
+    
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css">
+    
+      <link rel="stylesheet" href="/css/font-awesome.min.css">
+    
+      <link rel="stylesheet" href="/css/atom-one-dark.css">
+    
+      <link rel="stylesheet" href="/css/jquery.fancybox.css">
+    
+      <link rel="stylesheet" href="/css/nprogress.min.css">
+    
+      <link rel="stylesheet" href="/css/valine.css">
+    
+      <link rel="stylesheet" href="/css/life.css">
+    
+  
+
+  
+
+  <!-- jQuery first, then Tether, then Bootstrap JS. -->
+  
+  
+  
+    <script src="/js/jquery-2.2.4.min.js"></script>
+  
+    <script src="https://cdn1.lncld.net/static/js/3.1.0/av-min.js"></script>
+  
+    <script src="/js/jquery.pjax.js"></script>
+  
+    <script src="/js/nprogress.min.js"></script>
+  
+    <script src="/js/tether.min.js"></script>
+  
+    <script src="/js/bootstrap.min.js"></script>
+  
+    <script src="/js/highlight.min.js"></script>
+  
+    <script src="/js/highlightjs-line-numbers.min.js"></script>
+  
+    <script src="/js/jquery.fancybox.js"></script>
+  
+    <script src="/js/jquery.qrcode.min.js"></script>
+  
+    <script src="/js/Valine.min.js"></script>
+  
+  
+</head>
+<body>
+<script>AV.init({appId:'',appKey:''});</script>
+<script type="text/javascript">
+      var config = {
+            ClasS: 'Counter',
+            el:'.views',
+            elP: '.views-post'
+      }
+</script>
+<div class="container">
+    <div class="row blog-box-shadow">
+        <!--博客主栏开始-->
+        <div class="col-xl-9 col-lg-12 blog-main" id="pjax-box">
+            <header class="blog-header">
+                <a href="http://yoursite.com" class="blog-header-mobile-title">KyleGao Blog</a>
+                <a href="javascript:;" class="blog-header-navbar-btn"><i class="fa fa-bars"></i></a>
+                <nav class="blog-header-navbar blog-header-fixed">
+                    <ul class="blog-navbar-links">
+                        
+                          <li class="blog-nav-item"><a href="/" class="transition">首页</a></li>
+                        
+                          <li class="blog-nav-item"><a href="/about/" class="transition">关于</a></li>
+                        
+                          <li class="blog-nav-item"><a href="/links/" class="transition">链接</a></li>
+                        
+                        <div class="blog-navbar-right">
+                            <form action>
+                                <div class="input-group">
+                                    <input type="text" class="blog-header-search" placeholder="search...">
+                                    <buttn type="submit" class="blog-header-search-btn"><i class="fa fa-search"></i></buttn>
+                                </div>
+                            </form>
+                        </div>
+                    </ul>
+                </nav>
+            </header>
+                
+<header class="blog-post-page-title">
+    <h4></h4>
+    <time datetime="2019-07-01T12:08:46.188Z"><i class="fa fa-clock-o"></i>2019-07-01</time>
+    
+    
+    
+    
+	
+    
+</header>
+<div class="blog-main-post blog-post-page-box">
+    <article class="blog-post-block blog-post-page-content">
+        <section>
+            
+                <p>#6.17django</p>
+<p>##一、前奏</p>
+<hr>
+<ol>
+<li><p>Web应用 / App — HTTP(s) — 应用层协议<br>Hyper-Text Transfer Protocol / TCP</p>
+<blockquote>
+<p>HTTP - 80<br>HTTPS - 443</p>
+</blockquote>
+<p>HTTP请求：</p>
+<blockquote>
+<p>请求行：GET /index.html HTTP/1.1<br>请求头: 键值对<br>空行：\r\n<br>消息体：发给服务器的数据</p>
+</blockquote>
+<p>HTTP响应：</p>
+<blockquote>
+<p>响应行：HTTP/1.1 200 OK<br>响应头：键值对<br>空行：\r\n<br>消息体：服务器返回的数据</p>
+</blockquote>
+<p><a href="http://www.baidu.com:80/index.html" target="_blank" rel="noopener">http://www.baidu.com:80/index.html</a><br><a href="https://www.baidu.com:443/index.html" target="_blank" rel="noopener">https://www.baidu.com:443/index.html</a></p>
+<p>后端程序（服务器程序）</p>
+<p>Web应用开发框架 — Django / Flask / Tornado / Sanic</p>
+</li>
+<li><p>MVC架构模式   —-    内容和显示分离   —    MTV</p>
+<blockquote>
+<p>M：Model模型， 和MVC中M功能相同，和数据库进行交互。<br>T：Template模板，和MVC中V功能相同，产生html页面。<br>V：View视图，和MVC中C功能相同，接收请求，进行处理，与M和T进行交互，返回应答。</p>
+</blockquote>
+</li>
+</ol>
+<p>##二、在云服务器中</p>
+<hr>
+<ul>
+<li>一般不会在云服务器中创建django项目（了解）</li>
+</ul>
+<ol>
+<li><p>先创建一个文件夹： mkdir django1902</p>
+</li>
+<li><p>进入此文件夹：cd django1902/</p>
+</li>
+<li><p>python3 -m venv venv</p>
+</li>
+<li><p>source venv/bin/activate</p>
+</li>
+<li><p>以防出问题，先更新下pip： pip install -U pip</p>
+</li>
+<li><p>安装django：pip install django==2.1.8</p>
+</li>
+<li><p>检查安装是否成功：django-admin –version</p>
+</li>
+<li><p>在当前目录下创建一个django项目文件（.表示当前目录）：django-admin startproject django1902 .</p>
+</li>
+<li><p>查看当前目录有一个manage.py文件</p>
+</li>
+<li><p>运行：python manage.py runserver</p>
+</li>
+<li><p>将端口改为80的方法：python manage.py runserver 0.0.0.0:80</p>
+<p>改端口之前看看80端口是否被占用，如果占用一定要解除：systemctl stop nginx</p>
+<p>netstat -nap | grep 80</p>
+<p>一般nginx会占用80端口</p>
+</li>
+<li><p>进入django1902/django1902：cd django1902/</p>
+<p>查看里面的文件：ls</p>
+<p>有一个settings.py文件，改里面的配置</p>
+</li>
+<li><p>运行：python manage.py runserver 0.0.0.0:80</p>
+</li>
+</ol>
+<p>##三、 在pycharm中</p>
+<hr>
+<p>#####1.1 创建项目的步骤</p>
+<ol>
+<li><p>创建项目，并配置虚拟环境；</p>
+</li>
+<li><p>在底部终端验证虚拟环境是否被激活；</p>
+</li>
+<li><p>安装django,需要豆瓣镜像（速度会很快，如果已配置全局镜像，就不用写镜像，直接安装即可）：pip install django==2.1.8 -i <a href="https://pypi.doubanio.com/simple；" target="_blank" rel="noopener">https://pypi.doubanio.com/simple；</a></p>
+</li>
+<li><p>在当前目录下创建一个django项目文件（.表示当前目录）,将普通的python项目变成django项目：django-admin startproject django1902 .；</p>
+</li>
+<li><p>将安装的三方库们放到requirements.txt文件中：pip freeze &gt; requirements.txt；</p>
+</li>
+<li><p>创建应用：django-admin startapp poll</p>
+<p>​           python manage.py startapp poll</p>
+</li>
+<li><p>在 右上角添加个在运行之前需要配置运行小三角旁的框框，点进去，在弹出的对话框中，点+–&gt;选Python–&gt;在Script bpath中填写manage.py的路径–&gt;在Parameters的里面填写runserver；</p>
+</li>
+<li><p>安装数据库三方库：pip install pymysql</p>
+</li>
+<li><p>连接数据库：在配置文件里面setting.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">DATABASES = &#123;</span><br><span class="line">    <span class="string">'default'</span>: &#123;</span><br><span class="line">        <span class="string">'ENGINE'</span>: <span class="string">'django.db.backends.mysql'</span>,</span><br><span class="line">        <span class="string">'NAME'</span>: <span class="string">'数据库的名字'</span>,</span><br><span class="line">        <span class="string">'HOST'</span>: <span class="string">'服务器地址'</span>,</span><br><span class="line">        <span class="string">'PORT'</span>: <span class="number">3306</span>,</span><br><span class="line">        <span class="string">'USER'</span>: <span class="string">'数据库用户名'</span>,</span><br><span class="line">        <span class="string">'PASSWORD'</span>: <span class="string">'用户密码'</span>,</span><br><span class="line">        <span class="string">'CHARSET'</span>: <span class="string">'utf8'</span>,</span><br><span class="line">        <span class="string">'TIME_ZONE'</span>: <span class="string">'Asia/Chongqing'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行迁移：python manage.py migrate</p>
+</li>
+<li><p>Django框架内置了ORM（Object-Relational Mapping）框架，程序中通过操作对象就能完成数据的CRUD（增删改查）操作，在models.py文件中写语句：</p>
+<p>例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Teacher</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    <span class="string">"""老师"""</span></span><br><span class="line">    no = models.AutoField(primary_key=<span class="literal">True</span>, verbose_name=<span class="string">'编号'</span>)</span><br><span class="line">    name = models.CharField(max_length=<span class="number">20</span>, verbose_name=<span class="string">'姓名'</span>)</span><br><span class="line">    detail = models.CharField(max_length=<span class="number">511</span>, default=<span class="string">''</span>, blank=<span class="literal">True</span>, verbose_name=<span class="string">'详情'</span>)</span><br><span class="line">    photo = models.CharField(max_length=<span class="number">1023</span>, default=<span class="string">''</span>, verbose_name=<span class="string">'照片'</span>)</span><br><span class="line">    good_count = models.IntegerField(default=<span class="number">0</span>, verbose_name=<span class="string">'好评数'</span>)</span><br><span class="line">    bad_count = models.IntegerField(default=<span class="number">0</span>, verbose_name=<span class="string">'差评数'</span>)</span><br><span class="line">    <span class="comment"># on_delete=models.PROTECT,不让删学科</span></span><br><span class="line">    subject = models.ForeignKey(to=Subject, on_delete=models.PROTECT, db_column=<span class="string">'sno'</span>, verbose_name=<span class="string">'所属学科'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        db_table = <span class="string">'tb_teacher'</span></span><br><span class="line">        verbose_name = <span class="string">'老师'</span></span><br><span class="line">        verbose_name_plural = <span class="string">'老师'</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>生成迁移（后面文件是应用的文件名）：python manage.py makemigrations poll；</p>
+</li>
+<li><p>执行迁移：python manage.py migrate</p>
+</li>
+<li><p>超级管理员账号：python manage.py createsuperuser</p>
+</li>
+<li><p>进入交互式环境：python manage.py shell</p>
+</li>
+<li><p>如果修改模型，就重新生成迁移，执行迁移</p>
+</li>
+</ol>
+<p>#####1.2 额外小知识</p>
+<ol>
+<li><p>如果没有git，就配置环境变量path</p>
+<p>Windows修改PATH环境变量 –&gt; 计算机 –&gt; 属性 –&gt; 高级系统设置 –&gt; 环境变量 –&gt; 用户变量 –&gt; PATH –&gt; 编辑 –&gt; c:/program files/git/bin</p>
+<p>根目录</p>
+</li>
+<li><p>合并迁移文件：python manage.py squashmigrations poll2 文件名1 文件名2</p>
+</li>
+<li><p>BLOB  -   Binary Large OBject  -  longblob</p>
+</li>
+<li><p>CLOB   -   Character Large OBject  -  longtext</p>
+</li>
+<li><p>path()   –  拿到路径</p>
+</li>
+<li><p>get_full_path()  —   拿到带参数的路径</p>
+</li>
+<li><p>Ajax：异步请求，局部刷新</p>
+</li>
+<li><p>CSRF：跨站请求伪造</p>
+</li>
+<li><p>form.errors  ：可以查看错误</p>
+</li>
+<li><p>objects：模型管理器</p>
+</li>
+<li><p>用户跟踪：</p>
+<ol>
+<li><p>URL重写</p>
+<p><a href="http://www.baidu.com/?userid=canfy" target="_blank" rel="noopener">http://www.baidu.com/?userid=canfy</a></p>
+</li>
+<li><p>隐藏域（隐式表单域）  -   埋点</p>
+<p>&lt;input type=”hidden” name=”userid” value=”candy”&gt;</p>
+</li>
+<li><p>本地存储   -   Cookie/localStorage/sessionStorage/IndexDB</p>
+<p>userid &lt;—&gt; canfy</p>
+<p>====&gt;session对象（每个用户一个）</p>
+</li>
+</ol>
+</li>
+<li><p>清除过期的session数据：python manage.py clearsession</p>
+<p>我们可以设置一个定时任务，定时清除</p>
+</li>
+<li><p>发送短信的平台：</p>
+<blockquote>
+<p>云片短信<br>SendCloud<br>uosimao</p>
+</blockquote>
+</li>
+<li><p>str  —    不变字符串</p>
+<p>StringIO   —   可变字符串</p>
+<p>bytes  —   不变 字节串</p>
+<p>BytesIO   —    可变字节串</p>
+</li>
+<li><p>url只支持，%编码</p>
+</li>
+<li><p>带装饰的函数：wrapper</p>
+</li>
+<li><p>设计模式？</p>
+</li>
+<li><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> wraps</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">record_time</span><span class="params">(func)</span>:</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @wraps(func)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line"></span><br><span class="line">        result = func(*args, **kwargs)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>中间件   —   拦截过滤器</p>
+</li>
+<li><p>如何自定义中间件：</p>
+</li>
+<li><p>6月17日（知识点）：</p>
+<ol>
+<li>文件下载，导出excel报表</li>
+<li>%编码</li>
+<li>中间件，中间件的定义类的方法（自己看）</li>
+<li>从请求中获取路径</li>
+<li>判断是不是Ajax请求</li>
+<li>如何优化sql语句，如何配日志</li>
+</ol>
+</li>
+</ol>
+<p>####6.18</p>
+<p>#####前后端分离</p>
+<ol>
+<li><p>创建仓库carsearch</p>
+</li>
+<li><p>配置免密：</p>
+<ol>
+<li>在e盘打开GitBash</li>
+<li>ssh-keygen -t rsa  -b 2048 -C <a href="mailto:18728075965@163.com" target="_blank" rel="noopener">18728075965@163.com</a></li>
+<li>然后直接回车回车</li>
+<li>密钥对已经生成好</li>
+<li>进入目录：cd /c/Users/lcx-candy/.ssh</li>
+<li>查看里面文件：ls</li>
+<li>cat id_rsa.pub</li>
+<li>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC4k8XGJgnzPX4DLvXYcpnBstA2wR+o90HzkHreNJd8d8Gmb7UXgC1ckpKXehXmE9od2XQcsIo6qKQsVrcZfM8MyKEDh+lSVZ+sHYIujGbF6F2jvvDbnsxYsxGcxLBtCDAwb/BtQHWrcCYfpykt26ibLuqdBLsKsGcp1+DjIbwNNNFcnP+DI4YxJK0Xqkj6NAMR8KmhN/uuW1Q9A8lX9zGCJqPYn2zLCZd2wRGV/PAGwN0y2CU4I7PsBkTIQoDxuo0mnRCYatF/RTLj1uazLV4XhdKO8z0dF5PLQ8kIoGzz601k9B4umSLKzd0sn7W+jVPxaQsmBtWsijmq2mPcD0Wb <a href="mailto:18728075965@163.com" target="_blank" rel="noopener">18728075965@163.com</a></li>
+<li>打开gitee，帐户名-设置-SSH公钥，把8部中内容复制到</li>
+<li>git config –global user.email <a href="mailto:18728075965@163.com" target="_blank" rel="noopener">18728075965@163.com</a></li>
+</ol>
+</li>
+<li><p>在pycharm里创建</p>
+</li>
+<li><p>配置gitignore：<a href="https://gitignore.io/" target="_blank" rel="noopener">https://gitignore.io</a>–填linux,python,windows,pycharm,sublimetext,visualstudiocode–点创建–生成文件–复制到自己的.gitignore文件中</p>
+</li>
+<li><p>创建虚拟环境</p>
+</li>
+<li><p>安装依赖项</p>
+</li>
+<li><p>创建django项目和app</p>
+</li>
+<li><p>django具体看前面 步骤</p>
+</li>
+<li><p>配置静态资源</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">STATICFILES_DIRS = [os.path.join(BASE_DIR, &apos;assets&apos;), ]</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>10.配置Django-Debug-Toolbar（查看性能）</p>
+<ul>
+<li><p>安装：pip install django-debug-toolbar</p>
+<ul>
+<li>配置 - 修改settings.py</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># 在INSTALLED_APPS里面加里面那句话</span><br><span class="line">INSTALLED_APPS = [</span><br><span class="line">     &apos;debug_toolbar&apos;,</span><br><span class="line"> ]</span><br><span class="line"> # 在MIDDLEWARE里面加里面那句话</span><br><span class="line"> MIDDLEWARE = [</span><br><span class="line">     &apos;debug_toolbar.middleware.DebugToolbarMiddleware&apos;,</span><br><span class="line"> ]</span><br><span class="line"></span><br><span class="line"> DEBUG_TOOLBAR_CONFIG = &#123;</span><br><span class="line">     # 引入jQuery库</span><br><span class="line">     &apos;JQUERY_URL&apos;: &apos;https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js&apos;,</span><br><span class="line">     # 工具栏是否折叠</span><br><span class="line">     &apos;SHOW_COLLAPSED&apos;: True,</span><br><span class="line">     # 是否显示工具栏</span><br><span class="line">     &apos;SHOW_TOOLBAR_CALLBACK&apos;: lambda x: True,</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>​</p>
+<ul>
+<li>在urls.py加入配置</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if settings.DEBUG:</span><br><span class="line"></span><br><span class="line">    import debug_toolbar</span><br><span class="line"></span><br><span class="line">    urlpatterns.insert(0, path(&apos;__debug__/&apos;, include(debug_toolbar.urls)))</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="11">
+<li><p>过滤器语法：|      dealt|yesno:’已受理, 未受理’ </p>
+<p><a href="https://docs.djangoproject.com/en/2.1/ref/templates/builtins/#built-in-filter-reference" target="_blank" rel="noopener">https://docs.djangoproject.com/en/2.1/ref/templates/builtins/#built-in-filter-reference</a></p>
+</li>
+<li><p>Q对象：列：Q(carno=carno) | Q(owner__contains=carno)</p>
+<p>__contains   ：模糊查询</p>
+<p>__icontains  ：忽略大小写的模糊查询</p>
+<p>__exact   ：精确查询</p>
+<p>__iexact  ：忽略大小写的精确查询</p>
+</li>
+<li><p>分页：paginator</p>
+</li>
+</ol>
+<p>#####6.19</p>
+<ol>
+<li><p>pip install bpmappers  ：专门把数据变字典的三方库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class RecordMapper(ModelMapper):</span><br><span class="line">	car</span><br><span class="line">    makedate = RawField()</span><br><span class="line"></span><br><span class="line">    # 格式化日期</span><br><span class="line">    # 需要特别设置的话就将这个属性过滤出来</span><br><span class="line">    @staticmethod</span><br><span class="line">    def filter_makedate(makedate):</span><br><span class="line">        return makedate.strftime(&apos;%Y-%m-%d %H:%M&apos;)</span><br><span class="line"></span><br><span class="line">    class Meta:</span><br><span class="line">        model = Record</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>原始：RawField()</p>
+</li>
+<li><p>多对一：DelegateField</p>
+</li>
+<li><p>一对多：ListDelegateField</p>
+</li>
+<li><p>不做1+n操作加：select_related()   这个条件</p>
+</li>
+<li><p>如何学会查自己需要学的</p>
+</li>
+<li><p>惰性查询：queryset</p>
+</li>
+</ol>
+
+            
+        </section>
+        <footer class="blog-post-page-tags">
+        
+			
+		
+        </footer>
+    </article>
+    <article class="blog-post-page-readmore">
+    	
+    	
+		
+			<a href="/2019/07/01/Django_环境和项目分离的方式/" class="blog-post-page-readmore-prev" data-toggle="tooltip" data-placement="top" title="Django-环境和项目分离的方式">上一篇</a>
+		
+
+		
+		
+			<a href="/2019/07/01/6.24后端构建/" class="blog-post-page-readmore-next" data-toggle="tooltip" data-placement="top" title>下一篇</a>
+		
+
+        <div style="clear: both;"></div>
+    </article>
+
+    <article class="blog-post-block blog-post-page-content">
+            <div class="row">
+            
+                <div class="col-md-4 col-sm-4 post-page-more-btn">
+                    <span class="post-comments-btn btn btn-info btn-block" data-toggle="tooltip" data-placement="top" title="本站采用Disqus评论组件，若您没有科学上网可能会无法查看并评论">加载评论</span>
+                </div>
+            
+                <div class="col-md-4 col-sm-4 post-page-more-btn">
+                    <span data-toggle="modal" data-target="#post-donate-content">
+                        <span id="post-donate-btn" class="btn btn-danger btn-block" data-toggle="tooltip" data-placement="top" title="如果您觉得本文还不错或者对您有帮助，可以考虑打赏一下作者哦">打赏本文</span>
+                    </span>
+                </div>
+                <div class="col-md-4 col-sm-4 post-page-more-btn">
+                    <span data-toggle="modal" data-target="#post-qrcode-content">
+                        <span><span id="post-qrcode-btn" class="btn btn-success btn-block" data-toggle="tooltip" data-placement="top" title="微信扫描二维码手机端查看本文及分享本文">二维码</span></span>
+                    </span>
+                </div>
+            </div>
+        <div class="post-more-function-br"></div>
+
+        <div class="modal fade" id="post-donate-content" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">打赏本文</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row post-donate-content">
+                            <div class="col-md-4">
+                                <p>支付宝</p>
+                                <img class="post-donate-content-img no-lightbox" src="http://dl.weic96.cn/logo.png">
+                            </div>
+                            <div class="col-md-4">
+                                <p>微信</p>
+                                <img class="post-donate-content-img no-lightbox" src="http://dl.weic96.cn/logo.png">
+                            </div>
+                            <div class="col-md-4">
+                                <p>财付通</p>
+                                <img class="post-donate-content-img no-lightbox" src="http://dl.weic96.cn/logo.png">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="post-qrcode-content" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">文章二维码</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row post-qrcode-content">
+                            <span class="post-qrcode-content-canvas"></span>
+                            <img class="post-qrcode-content-img no-lightbox" src>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            // post QRcode
+            // 中文转码
+            function toUtf8(str) {
+                var out, i, len, c;
+                out = "";
+                len = str.length;
+                for (i = 0; i < len; i++) {
+                    c = str.charCodeAt(i);
+                    if ((c >= 0x0001) && (c <= 0x007F)) {
+                        out += str.charAt(i);
+                    } else if (c > 0x07FF) {
+                        out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));
+                        out += String.fromCharCode(0x80 | ((c >> 6) & 0x3F));
+                        out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+                    } else {
+                        out += String.fromCharCode(0xC0 | ((c >> 6) & 0x1F));
+                        out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+                    }
+                }
+                return out;
+            }
+            // 生成
+            var qrcode= $('.post-qrcode-content-canvas').qrcode({width: 150,height: 150,text: toUtf8("http://yoursite.com/2019/07/01/django/")}).hide();
+            var canvas=qrcode.find('canvas').get(0);
+            $('.post-qrcode-content-img').attr('src',canvas.toDataURL('image/jpg'));
+        </script>
+
+        
+    </article>
+    
+</div>
+
+                
+            <footer class="blog-footer">
+                <p class="blog-footer-left">Copyright ©  2019 <a href="http://yoursite.com">KyleGao Blog</a></p>
+                <p class="blog-footer-right">Powered by <a href="https://hexo.io" target="_blank">Hexo</a>,Theme <a href="https://note.isweic.com/themes-life/" target="_blank">Life</a></p>
+            </footer>
+        </div><!--博客主栏结束-->
+        <!--博客侧边栏开始-->
+        <div class="col-xl-3 blog-sidebar">
+            <div class="blog-sidebar-title">
+                <a href>KyleGao Blog</a>
+            </div>
+            <div class="blog-sidebar-logo">
+                <img src="http://b-ssl.duitang.com/uploads/item/201504/19/20150419H2846_8HKzU.jpeg">
+            </div>
+            <div class="blog-sidebar-count blog-sidebar-padding">
+                <div class="blog-sidebar-count-left">
+                    <p class="blog-sidebar-count-p">13</p>
+                    <span class="blog-sidebar-count-span">文章</span>
+                </div>
+                <div class="blog-sidebar-count-right">
+                    <p class="blog-sidebar-count-p">2</p>
+                    <span class="blog-sidebar-count-span">标签</span>
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+            <div class="blog-sidebar-icon blog-sidebar-padding">
+                <ul>
+                    <li><a href="https://github.com/CDkylegao" class="icon-github" target="_blank" data-toggle="tooltip" data-placement="top" title="Github"><i class="fa fa-github"></i></a></li>
+                    <li><a href class="icon-weibo" target="_blank" data-toggle="tooltip" data-placement="top" title="新浪微博"><i class="fa fa-weibo"></i></a></li>
+                    <li><a href class="icon-twitter" target="_blank" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                    <!--<li><a href="" class="icon-facebook" target="_blank" data-toggle="tooltip" data-placement="top" title="FaceBook"><i class="fa fa-facebook"></i></a></li>-->
+                    <li><a href="mailto:gaopeng3725@163.com" class="icon-email" data-toggle="tooltip" data-placement="top" title="E-Mail"><i class="fa fa-envelope"></i></a></li>
+                    <li><a href class="icon-rss" data-toggle="tooltip" target="_blank" data-placement="top" title="RSS"><i class="fa fa-rss"></i></a></li>
+                </ul>
+            </div>
+            <div class="blog-sidebar-categories">
+                <h4 class="blog-sidebar-h4"><i class="fa fa-folder-open"></i>&nbsp;文章分类</h4>
+                <ul class="list-group blog-sidebar-padding">
+                  
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/Django/">Django</a>
+                          <span class="badge badge-default badge-pill">3</span>
+                      </li>
+                    
+                  
+                </ul>
+            </div>
+            <div class="blog-sidebar-tags">
+                <h4 class="blog-sidebar-h4"><i class="fa fa-tag"></i>&nbsp;标签云</h4>
+                <ul class="blog-sidebar-tags-ul blog-sidebar-padding">
+                  
+                    
+                      <li><a href="/tags/Django/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Django">Django</a></li>
+                    
+                      <li><a href="/tags/Blog/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Blog">Blog</a></li>
+                    
+                  
+                </ul>
+            </div>
+            <script>
+              // 博客侧栏标签云随机色
+              var tag_cloud = $('.tag-could');
+              tag_cloud.each(function () {
+                  var Cnum = 9;
+                  var Crand = parseInt(Math.random() * Cnum);
+                  $(this).addClass("tag-could" + Crand);
+              })
+            </script>
+            <!--返回顶部按钮-->
+            <div class="retop">
+                <i class="fa fa-angle-up"></i>
+            </div>
+        </div><!--博客侧边栏结束-->
+    </div>
+</div>
+<script src="/js/LeanStatistics.min.js"></script>
+<script src="/js/Life.js"></script>
+<script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+    hljs.initLineNumbersOnLoad();
+    otherF();
+    LeanStatistics();
+    $(document).pjax('a', '#pjax-box', {fragment:'#pjax-box', timeout:8000}).on('pjax:complete', function() {
+      $('pre code').each(function(i, block){
+        hljs.highlightBlock(block);
+      })
+      $('code.hljs').each(function(i, block) {
+        hljs.lineNumbersBlock(block);
+      });
+      LeanStatistics();
+    }).on('pjax:start', function() { NProgress.start(); }).on('pjax:end',   function() {
+      NProgress.done();
+      otherF();
+    });
+</script>
+</body>
+</html>
